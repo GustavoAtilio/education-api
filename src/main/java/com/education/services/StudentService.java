@@ -30,16 +30,26 @@ public class StudentService {
 				student.getMother()));
 	}
 	
-	public StudentModel update(StudentDto student, Long id) {
-		StudentModel studentData = studentRepository.findById(id).orElseThrow(
+	public StudentModel getById(Long id) {
+		return studentRepository.findById(id).orElseThrow(
 				()-> new AppError("Aluno não encontrado id: "+id, HttpStatus.NOT_FOUND));
+	}
+	
+	public StudentModel delete(Long id) {
+		StudentModel studentData = getById(id);
+		studentRepository.deleteById(id);
+		return studentData;
+	}
+	
+	public StudentModel update(StudentDto student, Long id) {
+		StudentModel studentData = getById(id);
 		
-		return studentRepository.save(new StudentModel(
-				student.getName(),
-				student.getLastName(), 
-				student.getCPF(),
-				student.getDateOfBirth(), 
-				student.getFather(),
-				student.getMother()));
+		studentData.setCPF(student.getCPF());
+		studentData.setName(student.getName());
+		studentData.setLastName(student.getLastName());
+		studentData.setDateOfBirth(student.getDateOfBirth());
+		studentData.setMother(student.getMother());
+		studentData.setFather(student.getFather());
+		return studentRepository.save(studentData);
 	}
 }
