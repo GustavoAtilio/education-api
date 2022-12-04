@@ -1,43 +1,27 @@
-package com.education.models;
+package com.education.dto;
+
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.hibernate.validator.constraints.br.CPF;
 
-@Entity
-public class StudentModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-    
-    @Column(nullable = false)
+
+public class StudentDto {
+	@NotNull(message = "Nome Não pode ser nulo")
+	@NotEmpty(message = "Nome não pode ser Vazio")
 	private String name;
-    @Column(nullable = false)
+	@NotNull(message = "Sobre Nome Não pode ser nulo")
+	@NotEmpty(message = "Sobre Nome não pode ser Vazio")
 	private String lastName;
-    @Column(nullable = false, length = 11)
+	@CPF(message = "CPF Invalido")
 	private String CPF;
 	private String dateOfBirth;
-	private String father;
-	private String mother;
-	
-	public StudentModel() {}
-	public StudentModel( String name, String lastName, String cPF, String dateOfBirth, String father,
-			String mother) {
-		super();
-		this.name = name;
-		this.lastName = lastName;
-		CPF = cPF;
-		this.dateOfBirth = dateOfBirth;
-		this.father = father;
-		this.mother = mother;
-	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(CPF);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -47,15 +31,11 @@ public class StudentModel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		StudentModel other = (StudentModel) obj;
-		return Objects.equals(id, other.id);
+		StudentDto other = (StudentDto) obj;
+		return Objects.equals(CPF, other.CPF);
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	private String father;
+	private String mother;
 	public String getName() {
 		return name;
 	}
@@ -93,5 +73,3 @@ public class StudentModel {
 		this.mother = mother;
 	}
 }
-
-
