@@ -23,6 +23,7 @@ public class AppExceptionHandler {
 		error.setTimestamp(Instant.now());
 		error.setPatch(request.getRequestURI());
 		error.setStatus(e.getStatus().value());
+		error.setError(e.getStatus().toString());
 		return ResponseEntity.status(e.getStatus().value()).body(error);
 	}
 }

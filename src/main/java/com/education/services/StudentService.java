@@ -32,7 +32,7 @@ public class StudentService {
 	
 	public StudentModel update(StudentDto student, Long id) {
 		StudentModel studentData = studentRepository.findById(id).orElseThrow(
-				()-> new AppError("Aluno não encontrado id: ", HttpStatus.NOT_FOUND));
+				()-> new AppError("Aluno não encontrado id: "+id, HttpStatus.NOT_FOUND));
 		
 		return studentRepository.save(new StudentModel(
 				student.getName(),
