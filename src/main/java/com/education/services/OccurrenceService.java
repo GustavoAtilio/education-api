@@ -1,6 +1,7 @@
 package com.education.services;
 
 import java.time.Instant;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,4 +43,23 @@ public class OccurrenceService {
     			occurrence.getDescription(),
     			Instant.now().toString()));
     }
+    
+    public List<OccurrenceModel> getAll(){
+    	return occurrenceRepository.findAll();
+    	}
+    
+    public OccurrenceModel update(Long id, OccurrenceDto occurrence) {
+    	OccurrenceModel occurrenceDate = getById(id);
+    	occurrenceDate.setDescription(occurrence.getDescription());
+    	occurrenceRepository.save(occurrenceDate);
+    	return occurrenceDate;
+    }
+    
+    public List<OccurrenceModel> getByStudantId(Long id){
+    	StudentModel student = studentRepository.findById(id).orElseThrow(
+				()-> new AppError("Aluno não encontrado id: "+id, HttpStatus.NOT_FOUND));
+    	return occurrenceRepository.findByStudent(student);
+    }
+    
+    
 }

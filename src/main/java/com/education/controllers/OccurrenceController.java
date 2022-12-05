@@ -1,10 +1,13 @@
 package com.education.controllers;
 
+import java.util.List;
+
 import org.hibernate.engine.spi.Resolution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +34,10 @@ public class OccurrenceController {
 			){
 		      return new ResponseEntity<>(occurrenceService.create(occurrence, idStudent, idTeacher), HttpStatus.CREATED);
 	        }
+	@GetMapping("/{id}")
+    public ResponseEntity<List<OccurrenceModel>> getByStudent(@PathVariable Long id){
+		return ResponseEntity.ok(occurrenceService.getByStudantId(id));
+    }
 	
 	
 }
