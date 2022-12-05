@@ -8,3 +8,5 @@ docker run --name api_education -e POSTGRES_PASSWORD=3sBZ1LXvdwu2ma6J -p 5432:54
 ```
 create database api_education;
 ```
+
+### Arquivo postman presente na raiz do projeto api_education.postman_collection.json
