@@ -15,11 +15,14 @@ public class TeacherDto {
 	@NotNull(message = "Formação Não pode ser nulo")
 	@NotEmpty(message = "Formação pode ser Vazio")
     private String office;
+	
 	public String getName() {
+		
 		return name;
 	}
 	public void setName(String name) {
-		name = name;
+		
+		this.name = name;
 	}
 	public String getLastName() {
 		return lastName;

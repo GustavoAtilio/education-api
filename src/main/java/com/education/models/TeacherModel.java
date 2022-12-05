@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class TeacherModel {
 	public TeacherModel( String name, String lastName, String office) {
 		super();
-		name = name;
+		this.name = name;
 		this.lastName = lastName;
 		this.office = office;
 	}
@@ -35,7 +35,15 @@ public class TeacherModel {
 		return name;
 	}
 	public void setName(String name) {
-		name = name;
+		this.name = name;
+	}
+	public TeacherModel(){}
+	public TeacherModel(Long id, String name, String lastName, String office) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.lastName = lastName;
+		this.office = office;
 	}
 	public String getLastName() {
 		return lastName;

@@ -30,7 +30,7 @@ public class StudentModel {
 		super();
 		this.name = name;
 		this.lastName = lastName;
-		CPF = cPF;
+		this.CPF = cPF;
 		this.dateOfBirth = dateOfBirth;
 		this.father = father;
 		this.mother = mother;
