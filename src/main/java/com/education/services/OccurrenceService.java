@@ -61,5 +61,11 @@ public class OccurrenceService {
     	return occurrenceRepository.findByStudent(student);
     }
     
+    public OccurrenceModel delete(Long id) {
+    	OccurrenceModel occurrenceDate = getById(id);
+    	occurrenceRepository.delete(occurrenceDate);
+    	return occurrenceDate;
+    }
+    
     
 }
