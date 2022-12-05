@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "6ad9fa09-49c4-4370-8ad2-647ea1db9f19",
+		"name": "api_education",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "get students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get students by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/students/302",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"302"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create students",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Gustavo2\",\r\n    \"lastName\": \"Dal Canton\",\r\n    \"cpf\":\"04330980070\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gustavo2\",\r\n    \"lastName\": \"Dal Canton\",\r\n    \"father\": \"Jose\",\r\n    \"mother\": \"Elisete\",\r\n    \"cpf\": \"04330980070\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/302",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"302"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Gustavo\",\r\n    \"lastName\": \"Dal Canton\",\r\n    \"cpf\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/302",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"302"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "get all teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/teachers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get teacher by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/teachers/102",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"102"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Teste\",\r\n    \"lastName\":\"sobrenome\",\r\n    \"office\":\"teste\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Teste\",\r\n    \"lastName\":\"sobrenome\",\r\n    \"office\":\"teste\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/102",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"102"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Teste\",\r\n    \"lastName\":\"sobrenome\",\r\n    \"office\":\"teste\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/102",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"102"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Occurrence",
+			"item": [
+				{
+					"name": "get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/occurrences",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"occurrences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/occurrences/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"occurrences",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/occurrences/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"occurrences",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/occurrences/student/352",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"occurrences",
+								"student",
+								"352"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\":\"ola\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/occurrences/student/352/teacher/52",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"occurrences",
+								"student",
+								"352",
+								"teacher",
+								"52"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\":\"Teste Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/occurrences/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"occurrences",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
