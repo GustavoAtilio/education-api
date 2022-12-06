@@ -22,5 +22,5 @@ create database api_education;
 
 ### Executar Projeto
 ```
-java -jar target/education-api-0.0.1-SNAPSHOT.jar
+java -jar education-api-0.0.1-SNAPSHOT.jar
 ```
