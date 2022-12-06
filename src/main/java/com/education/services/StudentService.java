@@ -21,6 +21,8 @@ public class StudentService {
 	}
 	
 	public StudentModel create(StudentDto student) {
+		if(studentRepository.findByCPF(student.getCPF()) != null)
+			throw new AppError("CPF já existente", HttpStatus.BAD_REQUEST);
 		return studentRepository.save(new StudentModel(
 				student.getName(),
 				student.getLastName(), 
@@ -42,6 +44,8 @@ public class StudentService {
 	}
 	
 	public StudentModel update(StudentDto student, Long id) {
+		if(studentRepository.findByCPF(student.getCPF()) != null)
+			throw new AppError("CPF já existente", HttpStatus.BAD_REQUEST);
 		StudentModel studentData = getById(id);
 		
 		studentData.setCPF(student.getCPF());

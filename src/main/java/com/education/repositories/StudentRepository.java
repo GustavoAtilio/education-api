@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.education.models.StudentModel;
 
 @Repository
-public interface StudentRepository extends JpaRepository<StudentModel, Long> {}
+public interface StudentRepository extends JpaRepository<StudentModel, Long> {
+	public StudentModel findByCPF(String CPF);
+}

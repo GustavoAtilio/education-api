@@ -18,6 +18,8 @@ public class TeacherService {
 	private TeacherRepository teacherRepository;
 	
 	public TeacherModel create(TeacherDto teacher) {
+		if(teacherRepository.findByNameAndLastName(teacher.getName(), teacher.getLastName()) != null)
+			throw new AppError("Professor(a) já existente", HttpStatus.BAD_REQUEST);
 		return teacherRepository.save(new TeacherModel(
 				teacher.getName(), 
 				teacher.getLastName(), 
@@ -26,7 +28,7 @@ public class TeacherService {
 	
 	public TeacherModel getById(Long id) {
 		return teacherRepository.findById(id).orElseThrow(
-				()-> new AppError("Professora não encontrado id: "+id, HttpStatus.NOT_FOUND));
+				()-> new AppError("Professor(a) não encontrado id: "+id, HttpStatus.NOT_FOUND));
 	}
 	
 	public List<TeacherModel> getAll(){
@@ -39,6 +41,10 @@ public class TeacherService {
 		return teacher;
 	}
 	public TeacherModel update(Long id, TeacherDto teacher) {
+		TeacherModel teacherModel = teacherRepository.findByNameAndLastName(teacher.getName(), teacher.getLastName());
+
+		if(teacherModel != null && teacher.getOffice().equalsIgnoreCase(teacherModel.getOffice()))
+			throw new AppError("Professor(a) já existente", HttpStatus.BAD_REQUEST);
 		TeacherModel teacherData = getById(id);
 		teacherData.setName(teacher.getName());
 		teacherData.setLastName(teacher.getLastName());
