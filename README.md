@@ -20,7 +20,7 @@ create database api_education;
 
 ### Arquivo postman presente na raiz do projeto api_education.postman_collection.json
 
-### Executar Build do Projeto
+### Executar Projeto
 ```
 java -jar target/education-api-0.0.1-SNAPSHOT.jar
 ```
